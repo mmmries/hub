@@ -7,15 +7,11 @@ defmodule Hub.Application do
 
   @impl true
   def start(_type, _args) do
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Hub.Supervisor]
 
     children =
       [
-        # Children for all targets
-        # Starts a worker by calling: Hub.Worker.start_link(arg)
-        # {Hub.Worker, arg},
+        {Hub.NatsServer, target()}
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)

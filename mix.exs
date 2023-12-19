@@ -29,6 +29,8 @@ defmodule Hub.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:muontrap, "~> 1.3.3"},
+
       # Dependencies for all targets
       {:nerves, "~> 1.10", runtime: false},
       {:shoehorn, "~> 0.9.1"},
