@@ -11,7 +11,7 @@ defmodule Hub.Application do
 
     children =
       [
-        {Hub.NatsServer, target()}
+        #{Hub.NatsServer, target()}
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)

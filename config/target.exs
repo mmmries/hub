@@ -49,15 +49,13 @@ config :nerves_ssh,
 #
 # See https://github.com/nerves-networking/vintage_net for more information
 config :vintage_net,
-  regulatory_domain: "00",
+  regulatory_domain: "US",
   config: [
-    {"usb0", %{type: VintageNetDirect}},
     {"eth0",
      %{
        type: VintageNetEthernet,
        ipv4: %{method: :dhcp}
-     }},
-    {"wlan0", %{type: VintageNetWiFi}}
+     }}
   ]
 
 config :mdns_lite,
@@ -69,7 +67,7 @@ config :mdns_lite,
   # because otherwise any of the devices may respond to nerves.local leading to
   # unpredictable behavior.
 
-  hosts: [:hostname, "nerves"],
+  hosts: [:hostname, "hub"],
   ttl: 120,
 
   # Advertise the following services over mDNS.
